@@ -19,6 +19,7 @@ namespace GP2.Models
             }
         }
 
+        //Relation to Customer : Foreign Key
         public int CustomerID { get; set;  }
         public virtual Customer Customer { get; set; }
 

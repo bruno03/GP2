@@ -19,5 +19,8 @@ namespace GP2.Models
             }
         }
 
+
+        public virtual List<Car> Cars { get; set; }
+
     }
 }

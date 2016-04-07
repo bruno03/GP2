@@ -48,7 +48,7 @@ namespace GP2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "WorkItemID,Description,Quantity,Price,WorkOrderID")] WorkItem workItem)
+        public ActionResult Create([Bind(Include = "WorkItemID,Description,Quantity,UnitPrice,FinalPrice,WorkOrderID")] WorkItem workItem)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace GP2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "WorkItemID,Description,Quantity,Price,WorkOrderID")] WorkItem workItem)
+        public ActionResult Edit([Bind(Include = "WorkItemID,Description,Quantity,UnitPrice,FinalPrice,WorkOrderID")] WorkItem workItem)
         {
             if (ModelState.IsValid)
             {

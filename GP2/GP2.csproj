@@ -156,6 +156,10 @@
     <Compile Include="Migrations\201604071021075_addWorkItem.Designer.cs">
       <DependentUpon>201604071021075_addWorkItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604071241166_addFinalPriceWI.cs" />
+    <Compile Include="Migrations\201604071241166_addFinalPriceWI.Designer.cs">
+      <DependentUpon>201604071241166_addFinalPriceWI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Car.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -246,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604071021075_addWorkItem.resx">
       <DependentUpon>201604071021075_addWorkItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604071241166_addFinalPriceWI.resx">
+      <DependentUpon>201604071241166_addFinalPriceWI.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

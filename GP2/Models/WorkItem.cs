@@ -10,7 +10,8 @@ namespace GP2.Models
         public int WorkItemID { get; set; }
         public string Description { get; set; }
         public float Quantity { get; set; }
-        public decimal Price { get; set; }
+        public decimal UnitPrice { get; set; }
+        public decimal FinalPrice { get; set;  }
 
         //Relation with WorkOrder (Foreign Key)
         public int WorkOrderID { get; set; }

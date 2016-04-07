@@ -10,7 +10,13 @@ namespace GP2.Models
         public int WorkOrderID { get; set; }
         public DateTime DateIn { get; set; }
 
+
+        //Relation to Car : Foreign Key
         public int CarID { get; set; }
         public virtual Car Car { get; set; }
+
+
+
+        public virtual List<WorkItem> WorkItems { get; set; }
     }
 }

@@ -21,7 +21,10 @@
             @Html.DisplayNameFor(model => model.Quantity)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Price)
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FinalPrice)
         </th>
         <th></th>
     </tr>
@@ -38,7 +41,10 @@
             @Html.DisplayFor(modelItem => item.Quantity)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Price)
+            @Html.DisplayFor(modelItem => item.UnitPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FinalPrice)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.WorkItemID }) |
