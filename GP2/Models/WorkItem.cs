@@ -19,7 +19,7 @@ namespace GP2.Models
         [Display(Name = "Prix unitaire")]
         public decimal UnitPrice { get; set; }
 
-        [Display(Name = "Prix finale")]
+        [Display(Name = "Prix final")]
         public decimal FinalPrice { get; set;  }
 
         //Relation with WorkOrder (Foreign Key)

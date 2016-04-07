@@ -223,6 +223,7 @@
     <Content Include="Views\WorkItems\Details.cshtml" />
     <Content Include="Views\WorkItems\Edit.cshtml" />
     <Content Include="Views\WorkItems\Index.cshtml" />
+    <Content Include="Views\WorkItems\_FormInline.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

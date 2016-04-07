@@ -10,7 +10,13 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
+
+    @Html.Partial("_FormInline", Model)
+
+    @Html.HiddenFor(model => model.WorkItemID)
+
+    @*
     <div class="form-horizontal">
         <h4>WorkItem</h4>
         <hr />
@@ -63,6 +69,10 @@
             </div>
         </div>
     </div>
+
+
+
+    *@
 }
 
 <div>
