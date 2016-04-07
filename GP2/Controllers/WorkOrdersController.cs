@@ -39,7 +39,18 @@ namespace GP2.Controllers
         // GET: WorkOrders/Create
         public ActionResult Create()
         {
-            ViewBag.CarID = new SelectList(db.Cars, "CarID", "Brand");
+            var cars = db.Cars.Include(c => c.Customer);
+
+            List<SelectListItem> list = new List<SelectListItem>() ;
+            list.Clear(); 
+            foreach(var c in cars)
+            {
+                SelectListItem sli = new SelectListItem { Text = c.Fullname + " / " + c.Customer.FullName , Value = c.CarID.ToString()};
+                list.Add(sli); 
+            }
+
+            ViewBag.CarID = new SelectList(list, "Value", "Text");
+           
             return View();
         }
 
