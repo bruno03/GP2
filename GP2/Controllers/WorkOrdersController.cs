@@ -17,7 +17,7 @@ namespace GP2.Controllers
         // GET: WorkOrders
         public ActionResult Index()
         {
-            var workOrder = db.WorkOrder.Include(w => w.Car);
+            var workOrder = db.WorkOrders.Include(w => w.Car);
             return View(workOrder.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace GP2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            WorkOrder workOrder = db.WorkOrder.Find(id);
+            WorkOrder workOrder = db.WorkOrders.Find(id);
             if (workOrder == null)
             {
                 return HttpNotFound();
@@ -39,7 +39,7 @@ namespace GP2.Controllers
         // GET: WorkOrders/Create
         public ActionResult Create()
         {
-            ViewBag.CarID = new SelectList(db.Car, "CarID", "Brand");
+            ViewBag.CarID = new SelectList(db.Cars, "CarID", "Brand");
             return View();
         }
 
@@ -52,12 +52,12 @@ namespace GP2.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.WorkOrder.Add(workOrder);
+                db.WorkOrders.Add(workOrder);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CarID = new SelectList(db.Car, "CarID", "Brand", workOrder.CarID);
+            ViewBag.CarID = new SelectList(db.Cars, "CarID", "Brand", workOrder.CarID);
             return View(workOrder);
         }
 
@@ -68,12 +68,12 @@ namespace GP2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            WorkOrder workOrder = db.WorkOrder.Find(id);
+            WorkOrder workOrder = db.WorkOrders.Find(id);
             if (workOrder == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CarID = new SelectList(db.Car, "CarID", "Brand", workOrder.CarID);
+            ViewBag.CarID = new SelectList(db.Cars, "CarID", "Brand", workOrder.CarID);
             return View(workOrder);
         }
 
@@ -90,7 +90,7 @@ namespace GP2.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CarID = new SelectList(db.Car, "CarID", "Brand", workOrder.CarID);
+            ViewBag.CarID = new SelectList(db.Cars, "CarID", "Brand", workOrder.CarID);
             return View(workOrder);
         }
 
@@ -101,7 +101,7 @@ namespace GP2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            WorkOrder workOrder = db.WorkOrder.Find(id);
+            WorkOrder workOrder = db.WorkOrders.Find(id);
             if (workOrder == null)
             {
                 return HttpNotFound();
@@ -114,8 +114,8 @@ namespace GP2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            WorkOrder workOrder = db.WorkOrder.Find(id);
-            db.WorkOrder.Remove(workOrder);
+            WorkOrder workOrder = db.WorkOrders.Find(id);
+            db.WorkOrders.Remove(workOrder);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -9,7 +9,9 @@ namespace GP2.Models
     public class GPContext : DbContext
     {
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<Car> Car { get; set; }
-        public DbSet<WorkOrder> WorkOrder { get; set; }
+        public DbSet<Car> Cars { get; set; }
+        public DbSet<WorkOrder> WorkOrders { get; set; }
+        public DbSet<WorkItem> WorkItems { get; set; }
     }
+
 }

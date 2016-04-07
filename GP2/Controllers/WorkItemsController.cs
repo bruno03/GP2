@@ -10,112 +10,112 @@ using GP2.Models;
 
 namespace GP2.Controllers
 {
-    public class CarsController : Controller
+    public class WorkItemsController : Controller
     {
         private GPContext db = new GPContext();
 
-        // GET: Cars1
+        // GET: WorkItems
         public ActionResult Index()
         {
-            var car = db.Cars.Include(c => c.Customer);
-            return View(car.ToList());
+            var workItems = db.WorkItems.Include(w => w.WorkOrder);
+            return View(workItems.ToList());
         }
 
-        // GET: Cars1/Details/5
+        // GET: WorkItems/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Car car = db.Cars.Find(id);
-            if (car == null)
+            WorkItem workItem = db.WorkItems.Find(id);
+            if (workItem == null)
             {
                 return HttpNotFound();
             }
-            return View(car);
+            return View(workItem);
         }
 
-        // GET: Cars1/Create
+        // GET: WorkItems/Create
         public ActionResult Create()
         {
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "Firstname");
+            ViewBag.WorkOrderID = new SelectList(db.WorkOrders, "WorkOrderID", "WorkOrderID");
             return View();
         }
 
-        // POST: Cars1/Create
+        // POST: WorkItems/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CarID,Brand,Model,CustomerID")] Car car)
+        public ActionResult Create([Bind(Include = "WorkItemID,Description,Quantity,Price,WorkOrderID")] WorkItem workItem)
         {
             if (ModelState.IsValid)
             {
-                db.Cars.Add(car);
+                db.WorkItems.Add(workItem);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "Firstname", car.CustomerID);
-            return View(car);
+            ViewBag.WorkOrderID = new SelectList(db.WorkOrders, "WorkOrderID", "WorkOrderID", workItem.WorkOrderID);
+            return View(workItem);
         }
 
-        // GET: Cars1/Edit/5
+        // GET: WorkItems/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Car car = db.Cars.Find(id);
-            if (car == null)
+            WorkItem workItem = db.WorkItems.Find(id);
+            if (workItem == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "Firstname", car.CustomerID);
-            return View(car);
+            ViewBag.WorkOrderID = new SelectList(db.WorkOrders, "WorkOrderID", "WorkOrderID", workItem.WorkOrderID);
+            return View(workItem);
         }
 
-        // POST: Cars1/Edit/5
+        // POST: WorkItems/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CarID,Brand,Model,CustomerID")] Car car)
+        public ActionResult Edit([Bind(Include = "WorkItemID,Description,Quantity,Price,WorkOrderID")] WorkItem workItem)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(car).State = EntityState.Modified;
+                db.Entry(workItem).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "Firstname", car.CustomerID);
-            return View(car);
+            ViewBag.WorkOrderID = new SelectList(db.WorkOrders, "WorkOrderID", "WorkOrderID", workItem.WorkOrderID);
+            return View(workItem);
         }
 
-        // GET: Cars1/Delete/5
+        // GET: WorkItems/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Car car = db.Cars.Find(id);
-            if (car == null)
+            WorkItem workItem = db.WorkItems.Find(id);
+            if (workItem == null)
             {
                 return HttpNotFound();
             }
-            return View(car);
+            return View(workItem);
         }
 
-        // POST: Cars1/Delete/5
+        // POST: WorkItems/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Car car = db.Cars.Find(id);
-            db.Cars.Remove(car);
+            WorkItem workItem = db.WorkItems.Find(id);
+            db.WorkItems.Remove(workItem);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

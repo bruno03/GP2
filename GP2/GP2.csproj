@@ -131,6 +131,7 @@
     <Compile Include="Controllers\CarsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\WorkItemsController.cs" />
     <Compile Include="Controllers\WorkOrdersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -151,10 +152,15 @@
     <Compile Include="Migrations\201604071001406_3.Designer.cs">
       <DependentUpon>201604071001406_3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604071021075_addWorkItem.cs" />
+    <Compile Include="Migrations\201604071021075_addWorkItem.Designer.cs">
+      <DependentUpon>201604071021075_addWorkItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Car.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\GPContext.cs" />
+    <Compile Include="Models\WorkItem.cs" />
     <Compile Include="Models\WorkOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -208,6 +214,11 @@
     <Content Include="Views\WorkOrders\Details.cshtml" />
     <Content Include="Views\WorkOrders\Edit.cshtml" />
     <Content Include="Views\WorkOrders\Index.cshtml" />
+    <Content Include="Views\WorkItems\Create.cshtml" />
+    <Content Include="Views\WorkItems\Delete.cshtml" />
+    <Content Include="Views\WorkItems\Details.cshtml" />
+    <Content Include="Views\WorkItems\Edit.cshtml" />
+    <Content Include="Views\WorkItems\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -232,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604071001406_3.resx">
       <DependentUpon>201604071001406_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604071021075_addWorkItem.resx">
+      <DependentUpon>201604071021075_addWorkItem.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
