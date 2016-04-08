@@ -63,6 +63,16 @@ namespace GP2.Controllers
         {
             if (ModelState.IsValid)
             {
+                /*
+                List<WorkItem> list = new List<WorkItem>();
+                for(int i = 0; i < 3; i++)
+                {
+                    WorkItem wi = new WorkItem { Description = "Hello " + i, FinalPrice = 230 };
+                    list.Add(wi);
+                }
+
+                workOrder.WorkItems = list;
+                */
                 db.WorkOrders.Add(workOrder);
                 db.SaveChanges();
                 return RedirectToAction("Index");

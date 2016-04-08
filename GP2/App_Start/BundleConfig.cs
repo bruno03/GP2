@@ -17,7 +17,8 @@ namespace GP2
             bundles.Add(new ScriptBundle("~/bundles/gp").Include(
                        "~/Scripts/jquery-{version}.js",
                        "~/Scripts/jquery.validate*",
-                       "~/Scripts/jquery.unobtrusive*"
+                       "~/Scripts/jquery.unobtrusive*",
+                       "~/Scripts/gp.js*"
                        ));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
