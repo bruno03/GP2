@@ -28,15 +28,31 @@
     };
 
 
+    var removeFormWorkItem = function () {
+
+        var $checkbox = $(".myCheckBox");
+
+        if(($checkbox).is(':checked'))
+        {
+            $formToDelete = $checkbox.parent().parent();
+
+            $formToDelete.remove(); 
+
+        }
+
+        console.log($checkbox); 
+
+
+        alert("REMOVE"); 
+    }; 
+
 
     $("button[data-gp-addformworkitem='true']").click(addFormWorkItem);
     $("button[data-gp-deleteformworkitem='true']").click(deleteFormWorkItem);
+    $("button[data-gp-removeformworkitem='true']").click(removeFormWorkItem);
 
 
+    console.log("démarrage gp.js")
     
-
-    //console.log("démarrage gp.js")
-    
-
 
 });
