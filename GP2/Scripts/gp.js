@@ -1,5 +1,6 @@
 ﻿$(function () {
 
+    //Méthode pour ajouter une ligne (Form) 
     var addFormWorkItem = function () {
         var $button = $(this);
         var $target = $button.attr("data-gp-target");
@@ -8,51 +9,32 @@
         $('#' + $target).append($formToInsert);
     };
 
+    //Méthode pour supprimer les lignes si elles sont cochées
+    var removeFormWorkItem = function () {
+        var $checkbox = $("input:checked");
 
-    var deleteFormWorkItem = function () {
-        var $button = $(this);
-        var $formToDelete = $button.parent(); 
-
-        console.log($button);
-        console.log($formToDelete);
-        alert("delete");
-
-        //$formToDelete.remove(); 
-        /*
-        var $button = $(this);
-        var $formToInsert = $("div[data-gp-formworkitem='true']").parent().html();
-
-        console.log($button); 
-        $('#' + $target).remove($formToInsert);
-        */
+        $checkbox.each(function () {
+            $formToDelete = $(this).parent();
+            $formToDelete.remove(); 
+        });       
+        
     };
 
+    var submitFormWorkOrder = function () {
 
-    var removeFormWorkItem = function () {
+        $formMain = $("form:first");
 
-        var $checkbox = $(".myCheckBox");
+        
 
-        if(($checkbox).is(':checked'))
-        {
-            $formToDelete = $checkbox.parent().parent();
-
-            $formToDelete.remove(); 
-
-        }
-
-        console.log($checkbox); 
-
-
-        alert("REMOVE"); 
+        $formMain.submit();
     }; 
 
-
+    //Listener sur les boutons 
     $("button[data-gp-addformworkitem='true']").click(addFormWorkItem);
-    $("button[data-gp-deleteformworkitem='true']").click(deleteFormWorkItem);
     $("button[data-gp-removeformworkitem='true']").click(removeFormWorkItem);
+    $("button[data-gp-createworkorder='true']").click(submitFormWorkOrder);
 
 
-    console.log("démarrage gp.js")
     
 
 });

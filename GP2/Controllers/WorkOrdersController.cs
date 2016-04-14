@@ -63,6 +63,10 @@ namespace GP2.Controllers
         {
             if (ModelState.IsValid)
             {
+                if(Request.IsAjaxRequest())
+                {
+
+                }
                 /*
                 List<WorkItem> list = new List<WorkItem>();
                 for(int i = 0; i < 3; i++)
